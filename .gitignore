@@ -1,0 +1,11 @@
+.DS_Store
+dist/
+*.dmg
+
+# Xcode
+xcuserdata/
+*.xcuserstate
+DerivedData/
+*.xcscmblueprint
+*.dSYM.zip
+*.dSYM

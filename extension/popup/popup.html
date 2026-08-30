@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <img src="../images/icon-48.png" width="28" height="28" alt="" />
+    <h1>AutoScroll</h1>
+  </header>
+
+  <div class="perm-banner" id="permBanner" hidden>
+    <p>No permission on <strong id="permHost"></strong> yet, so autoscroll can't run there.</p>
+    <button id="permGrant" type="button">Allow access</button>
+    <p class="perm-fallback">
+      If nothing happens, use Safari's toolbar extensions icon, or
+      <strong>Settings &rarr; Extensions &rarr; Middle-Click AutoScroll</strong>,
+      to allow this website (or "file:// access" for local files).
+    </p>
+  </div>
+
+  <label class="row switch-row">
+    <span>Enable extension</span>
+    <input type="checkbox" id="enabled" />
+  </label>
+
+  <label class="row switch-row" id="siteRow">
+    <span>Enable on <strong id="siteLabel">this site</strong></span>
+    <input type="checkbox" id="siteToggle" />
+  </label>
+
+  <div class="row slider-row">
+    <div class="slider-label">
+      <span>Scroll speed</span>
+      <span id="sensitivityValue">1.0x</span>
+    </div>
+    <input type="range" id="sensitivity" min="0.4" max="3" step="0.1" />
+  </div>
+
+  <label class="row switch-row">
+    <span>Invert scroll direction</span>
+    <input type="checkbox" id="invert" />
+  </label>
+
+  <label class="row switch-row">
+    <span>Also stop on scroll wheel input</span>
+    <input type="checkbox" id="cancelOnWheel" />
+  </label>
+  <p class="help subtle">
+    Off by default: on mice where the scroll wheel is also the middle-click
+    button, pressing it can wobble the wheel slightly — with this on, that
+    would cancel autoscroll the instant it starts.
+  </p>
+
+  <p class="help">
+    Middle-click empty page content to arm autoscroll, then move the pointer
+    to scroll — the farther from where you clicked, the faster it scrolls.
+    Click any button or press <kbd>Esc</kbd> to stop. Pressing and dragging
+    (rather than a quick click) stops as soon as you let go.
+  </p>
+
+  <hr class="divider" />
+
+  <label class="row switch-row">
+    <span>Automatically check for updates</span>
+    <input type="checkbox" id="autoUpdateCheck" />
+  </label>
+  <div class="row update-row">
+    <span id="updateStatus" class="update-status"></span>
+    <button id="updateCheckNow" type="button" class="link-button">Check now</button>
+  </div>
+
+  <a href="#" id="reset" class="reset-link">Reset settings to defaults</a>
+  <p class="version" id="version"></p>
+
+  <script src="popup.js"></script>
+</body>
+</html>
